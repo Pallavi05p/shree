@@ -1,27 +1,50 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 export default function Hero() {
   const [showImage, setShowImage] = useState(false);
+  const videoRef = useRef(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowImage(true);
-    }, 13000); // 13 seconds
+    }, 13000);
 
     return () => clearTimeout(timer);
   }, []);
 
+  // Auto audio on first click/touch anywhere
+  useEffect(() => {
+    const enableAudio = () => {
+      if (videoRef.current) {
+        videoRef.current.muted = false;
+        videoRef.current.play();
+      }
+      // Remove listener after first click
+      document.removeEventListener("click", enableAudio);
+      document.removeEventListener("touchstart", enableAudio);
+    };
+
+    document.addEventListener("click", enableAudio);
+    document.addEventListener("touchstart", enableAudio);
+
+    return () => {
+      document.removeEventListener("click", enableAudio);
+      document.removeEventListener("touchstart", enableAudio);
+    };
+  }, []);
+
   return (
     <div className="w-full h-[60vh] md:h-[80vh] relative">
+
       {!showImage ? (
         <video
+          ref={videoRef}
           autoPlay
-          muted
           playsInline
+          muted
           className="w-full h-full object-cover"
         >
           <source src="/maha.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
         </video>
       ) : (
         <img
@@ -31,10 +54,6 @@ export default function Hero() {
         />
       )}
 
-      {/* Optional overlay text */}
-      <div className="absolute inset-0 flex items-center justify-center">
-        
-      </div>
     </div>
   );
 }
