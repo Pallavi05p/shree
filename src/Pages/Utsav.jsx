@@ -58,39 +58,42 @@ export default function Utsav() {
     infinite: true,
     autoplay: true,
     autoplaySpeed: 1500,
-    speed: 600,
-    slidesToShow: 3,   // always show 3 at a time
-    slidesToScroll: 1, // BUT slide one-by-one
+    speed: 700,
+    slidesToShow: 3,
+    slidesToScroll: 1,
     pauseOnHover: false,
+    arrows: false, // smoother mobile UI
     responsive: [
+      { breakpoint: 1280, settings: { slidesToShow: 3 } },
       { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 640, settings: { slidesToShow: 1 } },
+      { breakpoint: 768, settings: { slidesToShow: 1.2 } },
+      { breakpoint: 480, settings: { slidesToShow: 1 } },
     ],
   };
 
   return (
     <div
-      className="pt-24 pb-10 px-6 min-h-screen bg-cover bg-center bg-fixed"
+      className="pt-24 pb-12 px-4 sm:px-6 min-h-screen bg-cover bg-center bg-fixed"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
-      <h1 className="text-4xl text-center text-white font-bold mb-12">
+      <h1 className="text-3xl sm:text-4xl text-center text-white font-bold mb-10">
         🎉 Utsav Gallery
       </h1>
 
       {utsavGallery.map((album) => (
-        <div key={album.year} className="mb-20">
-          <h2 className="text-3xl text-center font-semibold text-yellow-300 mb-8">
+        <div key={album.year} className="mb-16 sm:mb-24">
+          <h2 className="text-2xl sm:text-3xl text-center font-semibold text-yellow-300 mb-6">
             ✨ {album.year}
           </h2>
 
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <Slider {...settings}>
               {album.images.map((img, i) => (
-                <div key={i} className="px-3">
-                  <div className="overflow-hidden rounded-2xl shadow-xl">
+                <div key={i} className="px-2 sm:px-4">
+                  <div className="rounded-xl overflow-hidden shadow-lg bg-black/20 backdrop-blur-sm">
                     <img
                       src={img}
-                      className="w-full h-[380px] object-cover rounded-2xl"
+                      className="w-full h-[260px] sm:h-[320px] md:h-[360px] lg:h-[380px] object-cover rounded-xl"
                       alt=""
                     />
                   </div>
