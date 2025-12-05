@@ -3,7 +3,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-// 2019 Shivjayanti
 import shiv1 from "../assets/g/2019shivjayanti/1.jpg";
 import shiv2 from "../assets/g/2019shivjayanti/2.jpg";
 import shiv3 from "../assets/g/2019shivjayanti/3.jpg";
@@ -13,14 +12,12 @@ import shiv6 from "../assets/g/2019shivjayanti/6.jpg";
 import shiv7 from "../assets/g/2019shivjayanti/7.jpg";
 import shiv8 from "../assets/g/2019shivjayanti/8.jpg";
 
-// 2020 Ganpati
 import gan2020_1 from "../assets/g/2020ganpati/1.jpg";
 import gan2020_2 from "../assets/g/2020ganpati/2.jpg";
 import gan2020_3 from "../assets/g/2020ganpati/3.jpg";
 import gan2020_4 from "../assets/g/2020ganpati/4.jpg";
 import gan2020_5 from "../assets/g/2020ganpati/5.jpg";
 
-// 2018 Ganpati
 import gan2018_1 from "../assets/g/2018ganpati/1.jpg";
 import gan2018_2 from "../assets/g/2018ganpati/2.jpg";
 import gan2018_3 from "../assets/g/2018ganpati/3.jpg";
@@ -46,9 +43,9 @@ export default function Utsav() {
     {
       year: "2018 Ganpati Utsav",
       images: [
-        gan2018_1, gan2018_2, gan2018_3, gan2018_4, gan2018_5, gan2018_6,
-        gan2018_7, gan2018_8, gan2018_9, gan2018_10, gan2018_11, gan2018_12,
-        gan2018_13, gan2018_14, gan2018_15,
+        gan2018_1, gan2018_2, gan2018_3, gan2018_4, gan2018_5,
+        gan2018_6, gan2018_7, gan2018_8, gan2018_9, gan2018_10,
+        gan2018_11, gan2018_12, gan2018_13, gan2018_14, gan2018_15,
       ],
     },
   ];
@@ -56,46 +53,43 @@ export default function Utsav() {
   const settings = {
     dots: true,
     infinite: true,
-    autoplay: true,
-    autoplaySpeed: 1500,
-    speed: 700,
-    slidesToShow: 3,
+    speed: 800,
+    slidesToShow: 1,
     slidesToScroll: 1,
-    pauseOnHover: false,
-    arrows: false, // smoother mobile UI
-    responsive: [
-      { breakpoint: 1280, settings: { slidesToShow: 3 } },
-      { breakpoint: 1024, settings: { slidesToShow: 2 } },
-      { breakpoint: 768, settings: { slidesToShow: 1.2 } },
-      { breakpoint: 480, settings: { slidesToShow: 1 } },
-    ],
+    autoplay: true,
+    autoplaySpeed: 2500,
+    arrows: true,
+    pauseOnHover: true,
   };
 
   return (
     <div
-      className="pt-24 pb-12 px-4 sm:px-6 min-h-screen bg-cover bg-center bg-fixed"
+      className="pt-24 pb-10 px-6 min-h-screen bg-cover bg-center bg-fixed"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
-      <h1 className="text-3xl sm:text-4xl text-center text-white font-bold mb-10">
+      <h1 className="text-4xl font-bold text-center text-white mb-12">
         🎉 Utsav Gallery
       </h1>
 
       {utsavGallery.map((album) => (
-        <div key={album.year} className="mb-16 sm:mb-24">
-          <h2 className="text-2xl sm:text-3xl text-center font-semibold text-yellow-300 mb-6">
+        <div key={album.year} className="mb-20">
+          <h2 className="text-2xl font-semibold text-center text-yellow-300 mb-8">
             ✨ {album.year}
           </h2>
 
-          <div className="max-w-7xl mx-auto">
+          <div className="max-w-4xl mx-auto">
             <Slider {...settings}>
-              {album.images.map((img, i) => (
-                <div key={i} className="px-2 sm:px-4">
-                  <div className="rounded-xl overflow-hidden shadow-lg bg-black/20 backdrop-blur-sm">
+              {album.images.map((img, idx) => (
+                <div key={idx} className="px-4">
+                  <div className="overflow-hidden rounded-2x p-2">
                     <img
                       src={img}
-                      className="w-full h-[260px] sm:h-[320px] md:h-[360px] lg:h-[380px] object-cover rounded-xl"
                       alt=""
+                      className="w-full h-[500px] object-contain bg-black rounded-2xl"
                     />
+                    <p className="text-center text-white mt-2">
+                      Photo {idx + 1}
+                    </p>
                   </div>
                 </div>
               ))}
