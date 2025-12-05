@@ -7,8 +7,11 @@ function Footer() {
       
       {/* Marathi Name with Colors */}
       <h1 className="text-5xl font-bold">
-        <span className="text-yellow-400">महाकाल</span>{" "}
-        <span className="text-white">प्रतिष्ठान</span>
+        <span className="text-yellow-400">||महाकाल</span>{" "}
+        <span className="text-white">प्रतिष्ठान||
+
+
+        </span>
       </h1>
 
       {/* Social Icons */}

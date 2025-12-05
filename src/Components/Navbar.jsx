@@ -32,7 +32,8 @@ export default function Navbar() {
       <div className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
         {/* Logo or Site Name */}
         <Link to="/" className="text-2xl font-bold text-yellow-300">
-          🚩 Mandal
+          🚩||महाकाल प्रतिष्ठान|| 🚩
+
         </Link>
 
         {/* Desktop Menu */}

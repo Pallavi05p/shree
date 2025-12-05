@@ -87,9 +87,7 @@ export default function Utsav() {
                       alt=""
                       className="w-full h-[500px] object-contain bg-black rounded-2xl"
                     />
-                    <p className="text-center text-white mt-2">
-                      Photo {idx + 1}
-                    </p>
+                  
                   </div>
                 </div>
               ))}
