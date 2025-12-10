@@ -17,7 +17,7 @@ function Footer() {
       {/* Social Icons */}
       <div className="flex items-center gap-6">
         <a
-          href="https://instagram.com"
+          href="https://www.instagram.com/mahakaal_pratishthan/?igshid=YmMyMTA2M2Y%3D"
           target="_blank"
           className="text-white text-2xl hover:text-yellow-400 transition"
         >
@@ -25,7 +25,7 @@ function Footer() {
         </a>
 
         <a
-          href="https://facebook.com"
+          href="https://www.facebook.com/mahakaalpratishthan/"
           target="_blank"
           className="text-white text-2xl hover:text-yellow-400 transition"
         >
